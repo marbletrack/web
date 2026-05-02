@@ -666,8 +666,7 @@ const Engine = (function () {
 	Engine.load = function (basePath, size) {
 		if (loadPromise == null) {
 			loadPath = basePath;
-			//loadPromise = preloader.loadPromise(`${loadPath}.wasm`, size, true);
-			loadPromise = preloader.loadPromise(`https://release-assets.githubusercontent.com/github-production-release-asset/1227781651/7852e4e6-fddc-4355-b5f7-04aff0be60bb?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T08%3A04%3A44Z&rscd=attachment%3B+filename%3Dmarbletracks.wasm&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-05-03T07%3A03%3A45Z&ske=2026-05-03T08%3A04%3A44Z&sks=b&skv=2018-11-09&sig=0quyedAmbZcOdR%2BvEO0p0Nz96yTdSV4kuBULdv%2BdnTU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3Nzc5Mzc5OCwibmJmIjoxNzc3NzkxOTk4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.jfDON3nuOV1ZsVVk6MSlGppsCUMuJHUBcV0P_-L8VfI&response-content-disposition=attachment%3B%20filename%3Dmarbletracks.wasm&response-content-type=application%2Foctet-stream`, size, true);
+			loadPromise = preloader.loadPromise(`${loadPath}.wasm`, size, true);
 			requestAnimationFrame(preloader.animateProgress);
 		}
 		return loadPromise;
@@ -707,7 +706,7 @@ const Engine = (function () {
 						initPromise = Promise.reject(new Error('A base path must be provided when calling `init` and the engine is not loaded.'));
 						return initPromise;
 					}
-					Engine.load(basePath, this.config.fileSizes[`https://release-assets.githubusercontent.com/github-production-release-asset/1227781651/7852e4e6-fddc-4355-b5f7-04aff0be60bb?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T08%3A04%3A44Z&rscd=attachment%3B+filename%3Dmarbletracks.wasm&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-05-03T07%3A03%3A45Z&ske=2026-05-03T08%3A04%3A44Z&sks=b&skv=2018-11-09&sig=0quyedAmbZcOdR%2BvEO0p0Nz96yTdSV4kuBULdv%2BdnTU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc3Nzc5Mzc5OCwibmJmIjoxNzc3NzkxOTk4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.jfDON3nuOV1ZsVVk6MSlGppsCUMuJHUBcV0P_-L8VfI&response-content-disposition=attachment%3B%20filename%3Dmarbletracks.wasm&response-content-type=application%2Foctet-stream`]);
+					Engine.load(basePath, this.config.fileSizes[`${basePath}.wasm`]);
 				}
 				const me = this;
 				function doInit(promise) {
